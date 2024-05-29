@@ -1,0 +1,349 @@
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    
+  }
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+header {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  min-width: 400px;
+  padding-left: 40px;
+}
+
+
+nav {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  width:100%;
+  height: 20%;
+
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  float:right;
+  font-size: 20px;
+  padding-right: 20px;
+  margin-right: 100px;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+
+main {
+  padding: 20px;
+  background-image: url('/static/images/krople-krwi.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  min-height: 800px;
+}
+
+h2 {
+  color: #FF0000;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #CCCCCC;
+}
+
+
+a {
+  color: #FF0000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+ul {
+  margin-bottom: 10px;
+  
+}
+
+ul li {
+  list-style-type: disc;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+
+select{
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #CCCCCC;
+  margin-bottom: 10px;
+
+
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+form input[type="date"],
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #CCCCCC;
+  margin-bottom: 10px;
+}
+
+form button {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #990000;
+}
+
+
+footer {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+.registration-box {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+}
+
+.registration-box h2 {
+  font-size: 24px;
+  color: #c70039;
+}
+
+.registration-box p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.registration-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+
+.registration-box input[type="text"],
+.registration-box input[type="email"],
+.registration-box input[type="password"] {
+  width: 80%;
+}
+
+
+.registration-box button {
+  background-color: #c70039;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dawcy-div {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 40px;
+  text-align: center;
+  
+}
+
+.dawcy-div h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.dawcy-div p {
+  font-size: 16px;
+  color: #666;
+}
+
+.dawcy-div .button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.dawcy-div .button:hover {
+  background-color: #cc0000;
+}
+
+.benefits-section {
+  padding: 40px 0;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.benefits-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.benefit-item {
+  flex-basis: 33.33%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.benefit-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.benefit-item p {
+  font-size: 16px;
+  color: #777;
+}
+
+
+.benefits-section {
+  padding: 40px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.benefits-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.benefit-item {
+  width: 300px;
+  margin: 20px;
+  text-align: center;
+}
+
+.benefit-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .benefit-item {
+    width: 100%;
+  }
+}
+
+.show {
+  display: block !important;
+}
+
+.menu {
+  display: none;
+}
+
+.hamburger {
+  position: absolute;
+  top: 50%x;
+  right: 10px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin-bottom: 5px;
+}

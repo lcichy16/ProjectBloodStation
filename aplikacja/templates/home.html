@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html>
+<head>
+    <title>Stacja krwiodawstwa - Rejestracja dawców</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    
+
+    <header>
+        <h1>Stacja krwiodawstwa</h1>
+        <div class="hamburger" id="hamburgerButton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Strona główna</a></li>
+                <li><a href="{% url 'register' %}">Rejestracja dawców</a></li>
+                <li><a href="#">Statystyki</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            
+            <div class="dawcy-div">
+                <h2>Dołącz do grona dawców!</h2>
+                <p>Aktualnie mamy już {{ dawcy_liczba }} dawców.</p>
+                <p>Dołącz do nas i pomóż ratować życie!</p>
+                <a href="{% url 'register' %}" class="button">Zarejestruj się</a>
+            </div>
+
+            <div class="benefits-section">
+                <h2 class="section-title">Plusy oddawania krwi</h2>
+                <div class="benefits-container">
+                    <div class="benefit-item">
+                        <img src="{% static 'images/icon1.png' %}" alt="Icon 1">
+                        <h3>Sztuka ratowania życia</h3>
+                        <p>Oddając krew, masz możliwość bezpośredniego wpływu na uratowanie czyjegoś życia. Twoja krwiożerczość może stać się cudem dla innych.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <img src="{% static 'images/icon2.png' %}" alt="Icon 2">
+                        <h3>Zdrowie dla Ciebie</h3>
+                        <p>Regularne oddawanie krwi może pomóc w utrzymaniu dobrego zdrowia. Redukuje ryzyko chorób serca, obniża ciśnienie krwi i reguluje poziom żelaza.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <img src="{% static 'images/icon3.png' %}" alt="Icon 3">
+                        <h3>Badanie zdrowia</h3>
+                        <p>Przed oddaniem krwi przeprowadzane jest badanie, które może pomóc w wykryciu niektórych stanów zdrowia, takich jak niedokrwistość czy infekcje.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
