@@ -25,7 +25,7 @@
                         <a class="nav-link" href="{% url 'register' %}">Rejestracja dawców</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'opinie' %}">Opinie</a>
+                        <a class="nav-link" href="#">Opinie</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kontakt</a>
@@ -65,15 +65,14 @@
             <h2>Opinie użytkowników</h2>
             <!-- Tutaj wyświetl opinie z bazy danych -->
             <div class="opinie">
-                <div class="opinia">
-                    <h4>Stacja 1</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at lectus nec velit condimentum suscipit.</p>
-                </div>
-                <div class="opinia">
-                    <h4>Stacja 2</h4>
-                    <p>Integer et urna nec sem ultrices hendrerit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                </div>
-                <!-- Dodaj więcej opinii -->
+                {% for opinia in opinie %}
+                    <div class="opinia">
+                        <h4>{{ opinia.stacja }}</h4>
+                        <p>{{ opinia.tresc }}</p>
+                    </div>
+                {% empty %}
+                    <p>Brak opinii.</p>
+                {% endfor %}
             </div>
         </div>
     </div>

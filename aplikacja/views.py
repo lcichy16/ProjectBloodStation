@@ -4,6 +4,13 @@ from django.db.models import Count
 from .models import Dawca
 from .forms import DawcaForm
 
+
+def opinie(request):
+    return render(request, 'opinie.html')
+
+def kontakt(request):
+    return render(request, 'kontakt.html')
+
 def my_view(request):
     dawcy_liczba = Dawca.objects.aggregate(liczba=Count('id'))
 
@@ -30,3 +37,25 @@ def register(request):
         form = DawcaForm()
     
     return render(request, 'register.html', {'form': form})
+
+from django.shortcuts import render, redirect
+from .forms import OpiniaForm
+
+from django.shortcuts import render
+from .models import Opinia
+
+def opinie(request):
+    opinie = Opinia.objects.all()
+    return render(request, 'opinie.html', {'opinie': opinie})
+
+
+def dodaj_opinie(request):
+    if request.method == 'POST':
+        form = OpiniaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('opinie')
+    else:
+        form = OpiniaForm()
+    return render(request, 'dodaj_opinie.html', {'form': form})
+

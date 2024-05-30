@@ -29,5 +29,8 @@ urlpatterns = [
     path('', views.my_view, name='home'),
     path('register/', views.register_view, name='register'),
     path('i18n/setlang/', set_language, name='set_language'),
-    
+    path('opinie/', views.opinie, name='opinie'),
+    path('kontakt/', views.kontakt, name='kontakt'),
+    path('dodaj_opinie/', views.dodaj_opinie, name='dodaj_opinie'),
+
 ]

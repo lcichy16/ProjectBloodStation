@@ -41,6 +41,17 @@ class Dawca(models.Model):
         return f"{self.imie} {self.nazwisko}"
 
 
+class Opinia(models.Model):
+    autor = models.CharField(max_length=100)
+    tresc = models.TextField()
+    data = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Opinia od {self.autor} z dnia {self.data}"
+
+
+
+
 
 class Donacja(models.Model):
     dawca = models.ForeignKey(Dawca, on_delete=models.CASCADE)
