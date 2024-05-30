@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stacja krwiodawstwa - Rejestracja dawców</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
 </head>
 <body>
-    <header>
-        <h1>Stacja krwiodawstwa</h1>
-    
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Strona główna</a></li>
-                <li><a href="{% url 'register' %}">Rejestracja dawców</a></li>
-                <li><a href="#">Statystyki</a></li>
-                <li><a href="#">Kontakt</a></li>
-                
-              
-                
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <div class="wrapper">
-            <div class="registration-box">
-                <h2>Zostań dawcą krwi!</h2>
-                <p>Zarejestruj się już dziś i pomóż komuś uratować życie.</p>
-                    <form method="post" action="/register/">  
-                        {% csrf_token %}
-                        <input type="text" name="imie" placeholder="Imię">
-                        <input type="text" name="nazwisko" placeholder="Nazwisko">
-                        <input type="date" name="data_urodzenia" placeholder="Data urodzenia">
-                        <input type="email" name="adres_mailowy" placeholder="Adres email">
-                        <input type="text" name="numer_telefonu" placeholder="Numer telefonu">
-                        <select name="grupa_krwi" placeholder="Grupa Krwi">
-                            <option value="" selected disabled >Wybierz grupę krwi</option>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand" href="#">Stacja krwiodawstwa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Strona główna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Rejestracja dawców</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Statystyki</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="registration-box p-4">
+                <h2 class="text-center mb-4">Zostań dawcą krwi!</h2>
+                <form method="post" action="/register/">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="imie" placeholder="Imię">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nazwisko" placeholder="Nazwisko">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" name="data_urodzenia" placeholder="Data urodzenia">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="adres_mailowy" placeholder="Adres email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="numer_telefonu" placeholder="Numer telefonu">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="grupa_krwi" placeholder="Grupa Krwi">
+                            <option value="" selected disabled>Wybierz grupę krwi</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
                             <option value="B+">B+</option>
@@ -46,16 +71,23 @@
                             <option value="0+">0+</option>
                             <option value="0-">0-</option>
                         </select>
-                        <button type="submit">Zarejestruj się</button>
-                    </form>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Zarejestruj się</button>
+                </form>
             </div>
-            
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
+<footer class="bg-light py-3 text-center">
+    <div class="container">
         <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
-    </footer>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
-

@@ -1,62 +1,107 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stacja krwiodawstwa - Rejestracja dawców</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Dodatkowy CSS */
+        .menu-toggle {
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            background-color: #fff;
+            display: block;
+            margin: 5px 0;
+            height: 3px;
+            width: 25px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Stacja krwiodawstwa</h1>
-        <div class="hamburger" id="hamburgerButton">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="menu" id="menu">
-            <ul>
-                <li><a href="{% url 'home' %}">Strona główna</a></li>
-                <li><a href="{% url 'register' %}">Rejestracja dawców</a></li>
-                <li><a href="#">Statystyki</a></li>
-                <li><a href="#">Kontakt</a></li>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container">
+        <a class="navbar-brand" href="#">Stacja krwiodawstwa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Strona główna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Rejestracja dawców</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Statystyki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kontakt</a>
+                </li>
             </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="wrapper">
-            <div class="dawcy-div">
-                <h2>Dołącz do grona dawców!</h2>
-                <p>Aktualnie mamy już {{ dawcy_liczba }} dawców.</p>
-                <p>Dołącz do nas i pomóż ratować życie!</p>
-                <a href="{% url 'register' %}" class="button">Zarejestruj się</a>
-            </div>
-            <div class="benefits-section">
-                <h2 class="section-title">Plusy oddawania krwi</h2>
-                <div class="benefits-container">
-                    <div class="benefit-item">
-                        <img src="{% static 'images/icon1.png' %}" alt="Icon 1">
-                        <h3>Sztuka ratowania życia</h3>
-                        <p>Oddając krew, masz możliwość bezpośredniego wpływu na uratowanie czyjegoś życia. Twoja krwiożerczość może stać się cudem dla innych.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <img src="{% static 'images/icon2.png' %}" alt="Icon 2">
-                        <h3>Zdrowie dla Ciebie</h3>
-                        <p>Regularne oddawanie krwi może pomóc w utrzymaniu dobrego zdrowia. Redukuje ryzyko chorób serca, obniża ciśnienie krwi i reguluje poziom żelaza.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <img src="{% static 'images/icon3.png' %}" alt="Icon 3">
-                        <h3>Badanie zdrowia</h3>
-                        <p>Przed oddaniem krwi przeprowadzane jest badanie, które może pomóc w wykryciu niektórych stanów zdrowia, takich jak niedokrwistość czy infekcje.</p>
-                    </div>
-                </div>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h2>Dołącz do grona dawców!</h2>
+            <p>Aktualnie mamy już {{ dawcy_liczba }} dawców.</p>
+            <p>Dołącz do nas i pomóż ratować życie!</p>
+            <a href="{% url 'register' %}" class="btn btn-danger">Zarejestruj się</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="section-title">Plusy oddawania krwi</h2>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="benefit-item">
+                <img src="{% static 'images/icon1.png' %}" alt="Icon 1" class="mb-3">
+                <h3>Sztuka ratowania życia</h3>
+                <p>Oddając krew, masz możliwość bezpośredniego wpływu na uratowanie czyjegoś życia. Twoja krwiożerczość może stać się cudem dla innych.</p>
             </div>
         </div>
-    </main>
-    <footer>
+        <div class="col-md-4 text-center">
+            <div class="benefit-item">
+                <img src="{% static 'images/icon2.png' %}" alt="Icon 2" class="mb-3">
+                <h3>Zdrowie dla Ciebie</h3>
+                <p>Regularne oddawanie krwi może pomóc w utrzymaniu dobrego zdrowia. Redukuje ryzyko chorób serca, obniża ciśnienie krwi i reguluje poziom żelaza.</p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="benefit-item">
+                <img src="{% static 'images/icon3.png' %}" alt="Icon 3" class="mb-3">
+                <h3>Badanie zdrowia</h3>
+                <p>Przed oddaniem krwi przeprowadzane jest badanie, które może pomóc w wykryciu niektórych stanów zdrowia, takich jak niedokrwistość czy infekcje.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-light py-3 text-center">
+    <div class="container">
         <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
-    </footer>
-    <script src="{% static 'js/script.js' %}"></script>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('navbarNav');
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('show');
+        });
+    });
+</script>
+
 </body>
 </html>

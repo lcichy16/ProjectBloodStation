@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Stacja krwiodawstwa</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand" href="#">Stacja krwiodawstwa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Strona główna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Rejestracja dawców</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'opinie' %}">Opinie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kontakt' %}">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h2>Masz pytania?</h2>
+            <p>Skontaktuj się z nami!</p>
+            <img src="{% static 'images/contact.jpg' %}" class="img-fluid mt-4" alt="Kontakt">
+            <p class="mt-4">Zadzwoń na infolinię: <strong>123 456 789</strong></p>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-light py-3 text-center">
+    <div class="container">
+        <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
