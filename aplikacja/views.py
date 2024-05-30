@@ -25,7 +25,6 @@ def register(request):
             grupa_krwi = request.POST.get('grupa_krwi')
             dawca.grupa_krwi = grupa_krwi
             dawca.save()
-            # Dodaj kod obsługi sukcesu, przekierowanie itp.
             return render(request, 'success_page.html')
     else:
         form = DawcaForm()

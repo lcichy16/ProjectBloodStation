@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
-{% load i18n %}
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stacja krwiodawstwa - Rejestracja dawców</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    
-
     <header>
         <h1>Stacja krwiodawstwa</h1>
         <div class="hamburger" id="hamburgerButton">
@@ -16,7 +15,7 @@
             <span></span>
             <span></span>
         </div>
-        <nav class="menu">
+        <nav class="menu" id="menu">
             <ul>
                 <li><a href="{% url 'home' %}">Strona główna</a></li>
                 <li><a href="{% url 'register' %}">Rejestracja dawców</a></li>
@@ -25,17 +24,14 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <div class="wrapper">
-            
             <div class="dawcy-div">
                 <h2>Dołącz do grona dawców!</h2>
                 <p>Aktualnie mamy już {{ dawcy_liczba }} dawców.</p>
                 <p>Dołącz do nas i pomóż ratować życie!</p>
                 <a href="{% url 'register' %}" class="button">Zarejestruj się</a>
             </div>
-
             <div class="benefits-section">
                 <h2 class="section-title">Plusy oddawania krwi</h2>
                 <div class="benefits-container">
@@ -58,7 +54,6 @@
             </div>
         </div>
     </main>
-
     <footer>
         <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
     </footer>

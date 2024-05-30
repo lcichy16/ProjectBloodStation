@@ -1,6 +1,8 @@
-const hamburgerButton = document.getElementById('hamburgerButton');
-const menu = document.querySelector('.menu');
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerButton = document.getElementById('hamburgerButton');
+    const menu = document.getElementById('menu');
 
-hamburgerButton.addEventListener('click', () => {
-    menu.classList.toggle('show');
+    hamburgerButton.addEventListener('click', function() {
+        menu.classList.toggle('active');
+    });
 });
