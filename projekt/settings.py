@@ -29,6 +29,7 @@ SECRET_KEY = 'django-insecure-$(mls9xuyis=3+dht%@hkel5v6g&my0l81y7g$001_fh^-c^m#
 DEBUG = True
 
 ALLOWED_HOSTS = []
+STATIC_URL = '/static/'
 
 
 # Application definition
@@ -68,7 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
@@ -77,19 +78,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projekt.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nazwa_bazy_danych',
-        'USER': 'nazwa_użytkownika',
-        'PASSWORD': 'hasło',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'mydatabase',  # Zmień na nazwę swojej bazy danych
+        'USER': 'admin',       # Użytkownik bazy danych
+        'PASSWORD': 'admin',   # Hasło użytkownika bazy danych
+        'HOST': 'localhost',   # Adres hosta bazy danych
+        'PORT': '5432',        # Port bazy danych
     }
 }
+
+
+
 
 
 
@@ -136,13 +138,6 @@ USE_TZ = True
 
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -155,10 +150,10 @@ import logging
 
 
 logging.basicConfig(
-    level=logging.DEBUG,  
+    level=logging.DEBUG,
     format='%(asctime)s [%(levelname)s] %(message)s',
     handlers=[
-        logging.FileHandler('app.log'), 
-        logging.StreamHandler()  
+        logging.FileHandler('app.log'),
+        logging.StreamHandler()
     ]
 )

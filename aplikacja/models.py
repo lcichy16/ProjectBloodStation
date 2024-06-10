@@ -42,14 +42,11 @@ class Dawca(models.Model):
 
 
 class Opinia(models.Model):
-    autor = models.CharField(max_length=100)
+    stacja = models.CharField(max_length=100)
     tresc = models.TextField()
-    data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Opinia od {self.autor} z dnia {self.data}"
-
-
+        return f"Opinia o {self.stacja}"
 
 
 

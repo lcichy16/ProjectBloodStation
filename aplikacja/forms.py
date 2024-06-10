@@ -14,4 +14,4 @@ from .models import Opinia
 class OpiniaForm(forms.ModelForm):
     class Meta:
         model = Opinia
-        fields = ['autor', 'tresc']
+        fields = ['stacja', 'tresc']

@@ -10,30 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-    <div class="container">
-        <a class="navbar-brand" href="#">Stacja krwiodawstwa</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Strona główna</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Rejestracja dawców</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'opinie' %}">Opinie</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'kontakt' %}">Kontakt</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+{% include 'header.html' %}
 
 <main class="container my-5">
     <div class="row">
@@ -72,11 +49,7 @@
     </div>
 </main>
 
-<footer class="bg-light py-3 text-center">
-    <div class="container">
-        <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
-    </div>
-</footer>
+{% include 'footer.html' %}
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

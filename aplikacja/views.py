@@ -44,12 +44,8 @@ from .forms import OpiniaForm
 from django.shortcuts import render
 from .models import Opinia
 
+
 def opinie(request):
-    opinie = Opinia.objects.all()
-    return render(request, 'opinie.html', {'opinie': opinie})
-
-
-def dodaj_opinie(request):
     if request.method == 'POST':
         form = OpiniaForm(request.POST)
         if form.is_valid():
@@ -57,5 +53,5 @@ def dodaj_opinie(request):
             return redirect('opinie')
     else:
         form = OpiniaForm()
-    return render(request, 'dodaj_opinie.html', {'form': form})
-
+    wszystkie_opinie = Opinia.objects.all()
+    return render(request, 'opinie.html', {'form': form, 'opinie': wszystkie_opinie})

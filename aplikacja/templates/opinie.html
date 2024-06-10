@@ -5,88 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opinie o stacji krwiodawstwa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+    {% include 'header.html' %}
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container">
-            <a class="navbar-brand" href="#">Stacja krwiodawstwa</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Strona główna</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Rejestracja dawców</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Opinie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kontakt</a>
-                    </li>
-                </ul>
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="mb-4">Dodaj swoją opinię</h2>
+                <form method="post" action="{% url 'opinie' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-danger">Dodaj opinię</button>
+                </form>
             </div>
         </div>
-    </nav>
-</header>
 
-<main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h2 class="mb-4">Dodaj swoją opinię</h2>
-            <form method="post" action="{% url 'dodaj_opinie' %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="stacja">Wybierz stację:</label>
-                    <select class="form-control" id="stacja" name="stacja">
-                        <option value="stacja1">Stacja 1</option>
-                        <option value="stacja2">Stacja 2</option>
-                        <option value="stacja3">Stacja 3</option>
-                        <!-- Dodaj więcej stacji do wyboru -->
-                    </select>
+        <div class="row mt-5">
+            <div class="col-md-8">
+                <h2>Opinie użytkowników</h2>
+                <div class="opinie">
+                    {% for opinia in opinie %}
+                        <div class="opinia">
+                            <h4>{{ opinia.stacja }}</h4>
+                            <p>{{ opinia.tresc }}</p>
+                        </div>
+                    {% empty %}
+                        <p>Brak opinii.</p>
+                    {% endfor %}
                 </div>
-                <div class="form-group">
-                    <label for="opinia">Twoja opinia:</label>
-                    <textarea class="form-control" id="opinia" name="opinia" rows="5"></textarea>
-                </div>
-                <button type="submit" class="btn btn-danger">Dodaj opinię</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-8">
-            <h2>Opinie użytkowników</h2>
-            <!-- Tutaj wyświetl opinie z bazy danych -->
-            <div class="opinie">
-                {% for opinia in opinie %}
-                    <div class="opinia">
-                        <h4>{{ opinia.stacja }}</h4>
-                        <p>{{ opinia.tresc }}</p>
-                    </div>
-                {% empty %}
-                    <p>Brak opinii.</p>
-                {% endfor %}
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<footer class="bg-light py-3 text-center">
-    <div class="container">
-        <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
-    </div>
-</footer>
+    {% include 'footer.html' %}
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
