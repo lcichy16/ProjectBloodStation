@@ -1,9 +1,7 @@
 from django.contrib import admin
-from .models import Dawca, Donacja, Zamowienie, Personel, Transfuzja
+from .models import Stacja, Dawca, Opinia, Rejestracja
 
+admin.site.register(Stacja)
 admin.site.register(Dawca)
-admin.site.register(Donacja)
-admin.site.register(Zamowienie)
-admin.site.register(Personel)
-admin.site.register(Transfuzja)
-
+admin.site.register(Opinia)
+admin.site.register(Rejestracja)

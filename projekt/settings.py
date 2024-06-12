@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aplikacja',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'projekt.urls'
+
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 TEMPLATES = [
@@ -82,11 +88,11 @@ WSGI_APPLICATION = 'projekt.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',  # Zmień na nazwę swojej bazy danych
-        'USER': 'admin',       # Użytkownik bazy danych
-        'PASSWORD': 'admin',   # Hasło użytkownika bazy danych
-        'HOST': 'localhost',   # Adres hosta bazy danych
-        'PORT': '5432',        # Port bazy danych
+        'NAME': 'stacja_krwiodawstwa',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

@@ -1,57 +1,69 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Stacja krwiodawstwa</title>
+    <title>Stacja krwiodawstwa - Kontakt</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .contact-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 40px;
+        }
+        .contact-container h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .contact-container button {
+            background-color: #d9534f;
+            border: none;
+        }
+        .contact-container button:hover {
+            background-color: #c9302c;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container">
-            <a class="navbar-brand" href="#">Stacja krwiodawstwa</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Strona główna</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Rejestracja dawców</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'opinie' %}">Opinie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'kontakt' %}">Kontakt</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+{% include 'header.html' %}
 
 <main class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-            <h2>Masz pytania?</h2>
-            <p>Skontaktuj się z nami!</p>
-            <img src="{% static 'images/contact.jpg' %}" class="img-fluid mt-4" alt="Kontakt">
-            <p class="mt-4">Zadzwoń na infolinię: <strong>123 456 789</strong></p>
+        <div class="col-md-8">
+            <div class="contact-container">
+                <h2 class="text-center">Kontakt</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_name">Twoje imię</label>
+                        {{ form.name|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_email">Twój email</label>
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_subject">Temat</label>
+                        {{ form.subject|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_message">Wiadomość</label>
+                        {{ form.message|as_crispy_field }}
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Wyślij</button>
+                </form>
+            </div>
         </div>
     </div>
 </main>
 
-<footer class="bg-light py-3 text-center">
-    <div class="container">
-        <p>Stacja krwiodawstwa - Wszelkie prawa zastrzeżone</p>
-    </div>
-</footer>
+{% include 'footer.html' %}
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

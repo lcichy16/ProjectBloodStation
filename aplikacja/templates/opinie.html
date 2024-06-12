@@ -4,46 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opinie o stacji krwiodawstwa</title>
+    <title>Stacja krwiodawstwa - Opinie</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .opinion-box {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .opinion-box h4 {
+            color: #dc3545;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+    </style>
 </head>
 <body>
-    {% include 'header.html' %}
 
-    <main class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h2 class="mb-4">Dodaj swoją opinię</h2>
-                <form method="post" action="{% url 'opinie' %}">
+{% include 'header.html' %}
+
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="form-container">
+                <h2 class="text-center mb-4">Dodaj swoją opinię</h2>
+                <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-danger">Dodaj opinię</button>
+                    <button type="submit" class="btn btn-danger btn-block">Dodaj opinię</button>
                 </form>
             </div>
-        </div>
 
-        <div class="row mt-5">
-            <div class="col-md-8">
-                <h2>Opinie użytkowników</h2>
-                <div class="opinie">
-                    {% for opinia in opinie %}
-                        <div class="opinia">
-                            <h4>{{ opinia.stacja }}</h4>
-                            <p>{{ opinia.tresc }}</p>
-                        </div>
-                    {% empty %}
-                        <p>Brak opinii.</p>
-                    {% endfor %}
-                </div>
+            <h2 class="text-center mb-4">Opinie</h2>
+            {% for opinia in opinie %}
+            <div class="opinion-box">
+                <h4>Stacja: {{ opinia.stacja.nazwa }}</h4>
+                <p>{{ opinia.tresc }}</p>
+                <small class="text-muted">Dodano: {{ opinia.data_dodania|date:"d-m-Y H:i" }}</small>
             </div>
+            {% endfor %}
         </div>
-    </main>
+    </div>
+</main>
 
-    {% include 'footer.html' %}
+{% include 'footer.html' %}
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
